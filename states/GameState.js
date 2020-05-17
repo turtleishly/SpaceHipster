@@ -1,4 +1,4 @@
-
+var SpaceHipster = SpaceHipster || {};
 
 SpaceHipster.GameState = {
 
@@ -25,7 +25,7 @@ SpaceHipster.GameState = {
     create : function(){
         this.background = this.add.tileSprite(0,0,this.game.world.width,this.game.world.height,'space');
 
-        
+        this.background.autoScroll(0,30);
     },
     update : function(){
 
