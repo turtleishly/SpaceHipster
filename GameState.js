@@ -38,6 +38,8 @@ SpaceHipster.GameState = {
 
         this.shootingTimer = this.game.time.events.loop(Phaser.Timer.SECOND/5,this.createPlayerBullet,this);
 
+        var enemy = new SpaceHipster.Enemy(this.game,100,100,'greenEnemy',10,[]);
+        this.game.add.existing(enemy);
     },
     update : function(){
         this.player.body.velocity.x = 0;
