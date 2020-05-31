@@ -4,6 +4,7 @@ SpaceHipster.GameState = {
 
     init : function(){
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        
 
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -57,11 +58,13 @@ SpaceHipster.GameState = {
         var bullet = this.playerBullets.getFirstExists(false);
 
         if(!bullet){
-            console.log('create bullet');
+            bullet = new SpaceHipster.PlayerBullet(this.game,this.player.x,this.player.top);
+            this.playerBullets.add(bullet);
         }
         else { 
-            //reset position
+            bullet.reset(this.player.x,this.player.top);
         }
-        //set velocity
+
+        bullet.body.velocity.y = this.BULLET_SPEED;
     }
 };
