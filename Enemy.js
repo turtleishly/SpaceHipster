@@ -48,6 +48,9 @@ SpaceHipster.Enemy.prototype.damage = function(amount){
         emitter.maxParticleSpeed.setTo(100,100);
         emitter.gravity = 0;
         emitter.start(true,500,null,100);
+
+        this.enemyTimer.pause();
+
     }
 };
 SpaceHipster.Enemy.prototype.reset = function(x,y,health,key,scale,speedX,speedY){
@@ -57,6 +60,8 @@ SpaceHipster.Enemy.prototype.reset = function(x,y,health,key,scale,speedX,speedY
     this.scale.setTo(scale);
     this.body.velocity.x = speedX;
     this.body.velocity.y = speedY;
+
+    this.enemyTimer.resume();
 
 }
 
