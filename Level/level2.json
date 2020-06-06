@@ -1,0 +1,170 @@
+{"duration" : 35,
+    "enemies":
+    [
+        {
+            "time": 2,
+            "x":0.05 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.1,
+            "x":0.1 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.2,
+            "x":0.15 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.3,
+            "x":0.2 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.4,
+            "x":0.25 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.5,
+            "x":0.3 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.6,
+            "x":0.35 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.7,
+            "x":0.4 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.8,
+            "x":0.45 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 2.9,
+            "x":0.5,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time":3,
+            "x":0.55,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 3.1,
+            "x":0.6,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        },
+        {
+            "time": 3.2,
+            "x":0.65 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }, {
+            "time": 3.3,
+            "x":0.7,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }, {
+            "time": 3.4,
+            "x":0.75 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }, {
+            "time": 3.5,
+            "x":0.8 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }, {
+            "time": 3.6,
+            "x":0.85 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }, {
+            "time": 3.7,
+            "x":0.9,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }, {
+            "time": 3.8,
+            "x":0.95 ,
+            "health":3 ,
+            "speedX":30 ,
+            "speedY":20 ,
+            "key":"greenEnemy",
+            "scale":1 
+        }
+
+    ]}

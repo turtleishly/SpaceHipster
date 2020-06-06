@@ -25,6 +25,12 @@ SpaceHipster.GameState = {
         this.load.spritesheet('redEnemy','images/red_enemy.png',50,46,3,1,1);
         this.load.spritesheet('greenEnemy','images/green_enemy.png',50,46,3,1,1);
 
+        //load Levels
+        this.load.text('level1','Level/level1.json')
+        this.load.text('level2','Level/level2.json')
+        this.load.text('level3','Level/level3.json')
+
+
 
     },
     create : function(){
@@ -53,13 +59,16 @@ SpaceHipster.GameState = {
 
         this.player.body.velocity.x = 0;
 
-        if (this.game.input.activePointer.isDown){
-            var targetX = this.game.input.activePointer.position.x;
+        if(this.game.input.keyboard.isDown(Phaser.Keyboard.A)){
+           var direction = -1
+           this.player.body.velocity.x = direction * this.PLAYER_SPEED;
 
-            var direction = targetX >= this.game.world.centerX ? 1 : -1 ;
-
+        } else if (this.game.input.keyboard.isDown(Phaser.Keyboard.D)){
+            var direction = 1
             this.player.body.velocity.x = direction * this.PLAYER_SPEED;
         }
+
+       
     },
     initBullets:function(){
         this.playerBullets = this.add.group();
@@ -109,13 +118,9 @@ SpaceHipster.GameState = {
 
         this.currentEnemyIndex = 0;
 
-        this.levelData = {
-            "duration" : 5,
-            "enemies" :
-            [
-             //enemies
-        ]
-    };
+        this.levelData = JSON.parse(this.game.cache.getText('level' + this.currentLevel));
+            
+    
 
     this.endOfLevelTimer = this.game.time.events.add(this.levelData.duration * 1000,function(){
         console.log('Level Ended')
