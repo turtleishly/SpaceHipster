@@ -2,7 +2,7 @@ var SpaceHipster = SpaceHipster || {};
 
 SpaceHipster.GameState = {
 
-    init : function(){
+    init : function(currentLevel){
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         
 
@@ -10,6 +10,10 @@ SpaceHipster.GameState = {
 
         this.PLAYER_SPEED = 200;
         this.BULLET_SPEED = -1000;
+
+        this.numLevels = 3;
+        this.currentLevel = currentLevel ? currentLevel : 1;
+        console.log('current level:' + this.currentLevel)
     },
     preload : function(){
         this.load.image('space','images/space.png');
@@ -39,6 +43,8 @@ SpaceHipster.GameState = {
         this.shootingTimer = this.game.time.events.loop(Phaser.Timer.SECOND/5,this.createPlayerBullet,this);
 
         this.initEnemies();
+
+        this.loadLevel();
     },
     update : function(){
         this.game.physics.arcade.overlap(this.playerBullets,this.enemies,this.damageEnemy,null,this);
@@ -98,5 +104,50 @@ SpaceHipster.GameState = {
             this.enemies.add(enemy);
         }
         enemy.reset(x,y,health,key,scale,speedX,speedY);
-    }
+    },
+    loadLevel : function(){
+
+        this.currentEnemyIndex = 0;
+
+        this.levelData = {
+            "duration" : 5,
+            "enemies" :
+            [
+             //enemies
+        ]
+    };
+
+    this.endOfLevelTimer = this.game.time.events.add(this.levelData.duration * 1000,function(){
+        console.log('Level Ended')
+
+        if (this.currentLevel < this.numLevels){
+            this.currentLevel++;
+        }else{
+            this.currentLevel = 1;
+        }
+
+        this.game.state.start('GameState',true,false,this.currentLevel);
+        },this)
+
+    this.scheduleNextEnemy();
+    },
+
+    scheduleNextEnemy : function(){
+        var nextEnemy = this.levelData.enemies[this.currentEnemyIndex];
+
+        if(nextEnemy){
+            var nextTime = 1000* (nextEnemy.time - (this.currentEnemyIndex == 0 ? 0 :
+                 this.levelData.enemies[this.currentEnemyIndex - 1].time));
+
+            this.nextEnemyTimer = this.game.time.events.add(nextTime,function(){
+
+                this.createEnemy(nextEnemy.x * this.game.world.width,-100,nextEnemy.health,nextEnemy.key,
+                    nextEnemy.scale,nextEnemy.speedX,nextEnemy.speedY)
+
+                    this.currentEnemyIndex ++;
+                    this.scheduleNextEnemy();
+            },this)
+        }
+    },
+
 };
