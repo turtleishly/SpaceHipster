@@ -1,6 +1,15 @@
-{"duration" : 35,
+{"duration" : 50,
     "enemies":
     [
+        {
+            "time": 1,
+            "x":0.5 ,
+            "health": 1,
+            "speedX":0 ,
+            "speedY":40 ,
+            "key":"greenEnemy",
+            "scale":0.5
+        },
         {
             "time": 2,
             "x":0.05 ,

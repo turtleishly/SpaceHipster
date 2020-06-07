@@ -14,6 +14,8 @@ SpaceHipster.GameState = {
         this.numLevels = 3;
         this.currentLevel = currentLevel ? currentLevel : 1;
         console.log('current level:' + this.currentLevel)
+
+  
     },
     preload : function(){
         this.load.image('space','images/space.png');
@@ -30,6 +32,7 @@ SpaceHipster.GameState = {
         this.load.text('level2','Level/level2.json')
         this.load.text('level3','Level/level3.json')
 
+        this.load.audio('orchestra',['audio/8bit-orchestra.mp3','audio/8bit-orchestra.ogg'])
 
 
     },
@@ -51,6 +54,9 @@ SpaceHipster.GameState = {
         this.initEnemies();
 
         this.loadLevel();
+
+        this.orchestra = this.add.audio('orchestra');
+        this.orchestra.play();
     },
     update : function(){
         this.game.physics.arcade.overlap(this.playerBullets,this.enemies,this.damageEnemy,null,this);
@@ -101,6 +107,7 @@ SpaceHipster.GameState = {
         bullet.kill();
     },
     killPlayer : function(){
+        this.orchestra.stop();
         this.player.kill()
         this.game.state.start('GameState')
     },
@@ -120,11 +127,11 @@ SpaceHipster.GameState = {
 
         this.levelData = JSON.parse(this.game.cache.getText('level' + this.currentLevel));
             
-    
+       
 
     this.endOfLevelTimer = this.game.time.events.add(this.levelData.duration * 1000,function(){
-        console.log('Level Ended')
 
+        this.orchestra.stop();
         if (this.currentLevel < this.numLevels){
             this.currentLevel++;
         }else{
